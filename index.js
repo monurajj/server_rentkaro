@@ -168,6 +168,10 @@ app.use((req, res) => {
   res.status(404).send('Route not found');
 });
 
+app.get('/', (req, res)=>{
+  res.status(200).send("Hello backend")
+})
+
 const PORT = process.env.PORT || 5001;
 app.listen(PORT, () => {
   console.log(`Server running on port ${PORT}`);
