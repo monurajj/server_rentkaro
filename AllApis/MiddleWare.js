@@ -11,7 +11,6 @@ function generateRefreshToken(payload){
     const refresh_token = jwt.sign(payload,refreshSecret,{expiresIn:"7d"})
     return refresh_token;
 }
-
 function jwtVerification(jwtToken){
     try{
         const payload = jwt.verify(jwtToken,jwtSecret)

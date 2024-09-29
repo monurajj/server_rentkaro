@@ -1,5 +1,5 @@
 const { RoomDetails, Users } = require('../Schemas/schemas');
-const bcrypt = require("bcrypt");
+const bcrypt = require('bcryptjs');
 const { generateJwt, verifyJwt } = require("./MiddleWare");
 
 const RoomManagementRoutes = {
@@ -79,7 +79,7 @@ const RoomManagementRoutes = {
                 }
 
                 try {
-                    // Find and delete the room
+                    // Finding  and delete the room(i am currently using roomId)
                     const deletedRoom = await RoomDetails.findByIdAndDelete(roomId);
                     if (!deletedRoom) {
                         return res.status(404).send({ message: "Room not found" });
