@@ -45,7 +45,8 @@ const AuthenticationRoutes = {
                     const token = generateJwt(payload);
                     const refreshToken = generateRefreshToken(payload);
                     res.status(200).send({
-                        message:"success",
+                        message:"signup successfull",
+                        username:username,
                         token:token,
                         refreshToken:refreshToken
                     });
@@ -96,6 +97,7 @@ const AuthenticationRoutes = {
                     const refreshToken = generateRefreshToken(payload);
                     res.status(200).send({
                         message:"login successfull",
+                        username:username,
                         token:token,
                         refreshToken:refreshToken
                     });
