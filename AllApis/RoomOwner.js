@@ -1,6 +1,4 @@
 const { RoomDetails, Users } = require('../Schemas/schemas');
-const bcrypt = require('bcryptjs');
-const { generateJwt, verifyJwt } = require("./MiddleWare");
 
 const RoomManagementRoutes = {
     path: "",
@@ -18,7 +16,7 @@ const RoomManagementRoutes = {
 
                 try {
                     // checking if roomowner is in our list or not
-                    const owner = await Users.findOne({ email: ownerEmail, role: "owner" });
+                    const owner = await Users.findOne({ email: ownerEmail });
                     if (!owner) {
                         return res.status(404).send({ message: "Owner not found" });
                     }
@@ -70,7 +68,7 @@ const RoomManagementRoutes = {
         // Remove room
         {
             method: "delete",
-            path: "/remove-room/:roomId",
+            path: "/removeRoom/:roomId",
             handler: async (req, res) => {
                 const { roomId } = req.params;
 

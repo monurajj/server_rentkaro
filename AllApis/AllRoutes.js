@@ -1,3 +1,4 @@
 const AuthenticationRoutes = require("./Authentication");
 const RoomDetailsRoutes = require("./RoomDetails");
-module.exports = [AuthenticationRoutes,RoomDetailsRoutes]
+const RoomManagementRoutes = require('./RoomOwner')
+module.exports = [AuthenticationRoutes,RoomDetailsRoutes,RoomManagementRoutes]

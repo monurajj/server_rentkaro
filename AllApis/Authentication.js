@@ -13,7 +13,6 @@ const transporter = nodemailer.createTransport({
     }
 });
 
-
 const AuthenticationRoutes = {
     path: "",
     routes: [
@@ -31,6 +30,7 @@ const AuthenticationRoutes = {
                 }
                 try{
                     const checkUsernameAndEmail  = await Users.findOne({email:email});
+                    console.log(checkUsernameAndEmail);
                     if(checkUsernameAndEmail){
                         res.status(400).send({message:"Email already exist"});
                         return;
@@ -50,7 +50,6 @@ const AuthenticationRoutes = {
                         refreshToken:refreshToken
                     });
                     return;
-
                 }
                 catch(e){
                     res.status(500).send({message:"something went wrong"});

@@ -10,6 +10,7 @@ app.use(cors({
 app.use(express.json());
 
 const routes = require('./AllApis/AllRoutes')
+// console.log(routes.);
 const mongoURI = process.env.MONGO_URI;
 
 
